@@ -1,6 +1,6 @@
 # TuristHelper
 
-TuristHelper is a app for a demo, It is using retorfit 2, gson, google maps v2, 
+TuristHelper is a app for a demo, It is using retorfit 2, realm, gson, google maps v2, 
 butterknife, glide and support design lib. 
 
 The app is consuming the apis of foursquare and googleapis for directions.
