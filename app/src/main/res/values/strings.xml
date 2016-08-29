@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Turist Helper</string>
+    <string name="title_activity_splash">SplashActivity</string>
+
+    <string name="foursquare_dialog_title">FourSquare</string>
+    <string name="foursquare_dialog_loading">Loading...</string>
+    <string name="login_error_user_information">"Error getting the user information, try again please "</string>
+    <string name="login_error_authorization_failed">Authorization failed</string>
+    <string name="googlemaps_loading_route">Loading route. Please wait...</string>
+
+    <string name="nav_menu_map">Map</string>
+    <string name="nav_menu_more">More</string>
+    <string name="detail_venue_url">URL</string>
+    <string name="detail_venue_distance">Distance</string>
+    <string name="detail_venue_address">Address</string>
+    <string name="detail_venue_error_getting_photo">Error getting photo</string>
+
+
+</resources>
