@@ -2,7 +2,7 @@ package com.jmarkstar.turisthelper.models;
 
 import com.google.gson.annotations.SerializedName;
 
-/** Response for {@link com.jmarkstar.turisthelper.services.AccessTokenService}
+/** foursquare token response.
  * Created by jmarkstar on 27/08/2016.
  */
 public final class AccessToken {

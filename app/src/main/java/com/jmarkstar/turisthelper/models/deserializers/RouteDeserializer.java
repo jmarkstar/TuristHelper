@@ -1,4 +1,4 @@
-package com.jmarkstar.turisthelper.models.deserialize;
+package com.jmarkstar.turisthelper.models.deserializers;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonDeserializationContext;

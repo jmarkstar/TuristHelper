@@ -20,8 +20,6 @@ public class Constant {
     //FourSquare
     public static final String API_BASE = "https://api.foursquare.com/v2/";
     public static final String AUTH_BASE = "https://foursquare.com/oauth2/";
-    public static final String CLIENT_ID = "TGHCZMAJFI1ZPBNORVR5DYPCV5HHXOPVKLHLQOWTA3AHYSTT";
-    public static final String CLIENT_SECRET = "SWDCILTUOR1IWFZTINLK0ZIJNKRDTVEHKJBUYTH2PWWH2KP4";
     public static final String MY_REGISTERED_REDIRECT_URI = "http://www.tursthelper.com/redirect_uri";
     public static final String GRANT_TYPE_ACCESS_TOKEN = "authorization_code";
     public static final String V_PARAMETER = "v";

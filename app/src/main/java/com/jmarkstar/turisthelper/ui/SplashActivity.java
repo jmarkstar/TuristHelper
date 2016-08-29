@@ -3,6 +3,7 @@ package com.jmarkstar.turisthelper.ui;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.WindowManager;
 import com.jmarkstar.turisthelper.R;
 import com.jmarkstar.turisthelper.helpers.FoursquareHelper;
 import com.jmarkstar.turisthelper.utils.LogUtils;
@@ -20,6 +21,7 @@ public class SplashActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         LogUtils.info(TAG, "Starting");
 
         new Handler().postDelayed(new Runnable(){

@@ -24,14 +24,13 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.google.gson.Gson;
 import com.jmarkstar.turisthelper.R;
+import com.jmarkstar.turisthelper.helpers.FoursquareHelper;
 import com.jmarkstar.turisthelper.helpers.HttpClientHelper;
 import com.jmarkstar.turisthelper.models.Session;
 import com.jmarkstar.turisthelper.models.AccessToken;
 import com.jmarkstar.turisthelper.utils.Constant;
 import com.jmarkstar.turisthelper.utils.LogUtils;
-
 import java.util.UUID;
-
 import io.realm.Realm;
 
 /** Dialog to login.
@@ -51,7 +50,9 @@ public class FoursquareDialog extends Dialog {
 
 	public FoursquareDialog(Context context, FoursquareDialogListener listener) {
 		super(context);
-		mUrl = Constant.AUTH_BASE + "/authenticate?response_type=code" + "&client_id=" + Constant.CLIENT_ID + "&redirect_uri=" + Constant.MY_REGISTERED_REDIRECT_URI;
+		mUrl = Constant.AUTH_BASE + "/authenticate?response_type=code" + "&client_id="
+				+ FoursquareHelper.getProperty(FoursquareHelper.Property.CLIENT_ID, getContext())
+				+ "&redirect_uri=" + Constant.MY_REGISTERED_REDIRECT_URI;
 		mFoursquareDialogListener = listener;
 	}
 	
@@ -151,8 +152,7 @@ public class FoursquareDialog extends Dialog {
 				//IMPORTANT:
 				//I have create a HttpClientHelper using the Builder Pattern to use it with this Asynctask
 				//because I had problems with Retrofit 2.
-				//I couldnt send my foursquare code because It has a '#' character and Retrofit 2 encode it
-				// I think It is a bug of the library.
+				//I couldnt send my foursquare code because It has a '#' character and Retrofit 2 encode it.
 				//https://github.com/square/retrofit/issues/1407
 				//https://square.github.io/retrofit/2.x/retrofit/index.html?retrofit2/http/Query.html
 				new AsyncTask<Void, Void, AccessToken>() {
@@ -165,8 +165,8 @@ public class FoursquareDialog extends Dialog {
 								.method(HttpClientHelper.Method.GET)
 								.resource("access_token")
 								.query("grant_type", Constant.GRANT_TYPE_ACCESS_TOKEN)
-								.query("client_id", Constant.CLIENT_ID)
-								.query("client_secret", Constant.CLIENT_SECRET)
+								.query("client_id", FoursquareHelper.getProperty(FoursquareHelper.Property.CLIENT_ID, getContext()))
+								.query("client_secret", FoursquareHelper.getProperty(FoursquareHelper.Property.CLIENT_SECRET, getContext()))
 								.query("redirect_uri", Constant.MY_REGISTERED_REDIRECT_URI)
 								.query("code", code)
 								.create();

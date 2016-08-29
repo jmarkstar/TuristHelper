@@ -2,46 +2,48 @@ apply plugin: 'com.android.application'
 apply plugin: 'io.fabric'
 apply plugin: 'realm-android'
 
-//Loading keystore.properties
-def keystorePropertiesFile = rootProject.file("keystore.properties")
-def keystoreProperties = new Properties()
-keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
-
 android {
     compileSdkVersion 24
     buildToolsVersion "24.0.0"
 
-    dataBinding {
-        enabled = true
-    }
-
-    signingConfigs {
-        releaseSigning {
-            keyAlias keystoreProperties['keyAlias']
-            keyPassword keystoreProperties['keyPassword']
-            storeFile file(keystoreProperties['storeFile'])
-            storePassword keystoreProperties['storePassword']
-        }
-    }
-
     defaultConfig {
         applicationId "com.jmarkstar.turisthelper"
         minSdkVersion 16
-        targetSdkVersion 22
-        versionCode 1
+        targetSdkVersion 22 //the permissions will be asked them when the user install the apk, for android 23 and 24 too.
+        versionCode 2
         versionName "1.0"
     }
+
+    signingConfigs {
+        //this is used when you will build a apk by gradle
+        release
+
+        //this is used when you run the app by android studio
+        debug {
+            keyAlias 'your_key_alias'
+            keyPassword 'your_key_password'
+            storeFile file('/your/file/keystore.jks')
+            storePassword 'your_store_password'
+        }
+    }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             debuggable false
-            signingConfig signingConfigs.releaseSigning
+            signingConfig signingConfigs.release
+            ext.betaDistributionReleaseNotes = "adding fabric settings."
+            ext.betaDistributionEmails = "mestrella.1991@gmail.com"
         }
         debug {
             debuggable true
-            signingConfig signingConfigs.releaseSigning
+            signingConfig signingConfigs.debug
         }
+    }
+
+    dataBinding {
+        enabled = true
     }
 
     lintOptions{
@@ -49,9 +51,29 @@ android {
     }
 }
 
+//Loading signing properties
+def Properties props = new Properties()
+def propFile = new File('keystore.properties')
+if (propFile.canRead()){
+    props.load(new FileInputStream(propFile))
+
+    if (props!=null && props.containsKey('STORE_FILE') && props.containsKey('STORE_PASSWORD') &&
+            props.containsKey('KEY_ALIAS') && props.containsKey('KEY_PASSWORD')) {
+        android.signingConfigs.release.storeFile = file(props['STORE_FILE'])
+        android.signingConfigs.release.storePassword = props['STORE_PASSWORD']
+        android.signingConfigs.release.keyAlias = props['KEY_ALIAS']
+        android.signingConfigs.release.keyPassword = props['KEY_PASSWORD']
+    } else {
+        println 'keystore.properties found but some entries are missing'
+        android.buildTypes.release.signingConfig = null
+    }
+}else {
+    println 'keystore.properties not found'
+    android.buildTypes.release.signingConfig = null
+}
+
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:support-v4:24.0.0'
     compile 'com.android.support:appcompat-v7:24.0.0'

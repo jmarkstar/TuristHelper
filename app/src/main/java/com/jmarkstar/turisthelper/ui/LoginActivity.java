@@ -2,6 +2,7 @@ package com.jmarkstar.turisthelper.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.WindowManager;
 import android.widget.Toast;
 import com.jmarkstar.turisthelper.R;
 import com.jmarkstar.turisthelper.extensions.FoursquareDialog;
@@ -29,6 +30,7 @@ public class LoginActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         listener = new FoursquareDialog.FoursquareDialogListener() {
             @Override

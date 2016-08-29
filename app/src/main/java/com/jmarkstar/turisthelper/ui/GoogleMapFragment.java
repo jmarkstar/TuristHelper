@@ -28,7 +28,7 @@ import com.google.gson.GsonBuilder;
 import com.jmarkstar.turisthelper.R;
 import com.jmarkstar.turisthelper.helpers.RetrofitHelper;
 import com.jmarkstar.turisthelper.models.Venue;
-import com.jmarkstar.turisthelper.models.deserialize.RouteDeserializer;
+import com.jmarkstar.turisthelper.models.deserializers.RouteDeserializer;
 import com.jmarkstar.turisthelper.services.RouteService;
 import com.jmarkstar.turisthelper.services.VenueService;
 import com.jmarkstar.turisthelper.services.response.RouteResponse;

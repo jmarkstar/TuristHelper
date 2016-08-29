@@ -3,7 +3,7 @@ package com.jmarkstar.turisthelper.models;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-/**
+/** Foursquare place's entity.
  * Created by jmarkstar on 28/08/2016.
  */
 public class Venue implements Parcelable {

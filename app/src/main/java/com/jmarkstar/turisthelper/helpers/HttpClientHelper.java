@@ -110,11 +110,6 @@ public final class HttpClientHelper {
          * */
         public Builder queryMap(Map<String, String> options){
             this.addInitQuery();
-            /*for (Map.Entry<String, String> entry : options.entrySet()) {
-                String query = entry.getKey()+EQUALS+entry.getValue();
-                this.mUrl.append(query);
-            }*/
-
             Iterator entries = options.entrySet().iterator();
             boolean hasNext = entries.hasNext();
             while (hasNext) {

@@ -23,6 +23,8 @@ public class TuristHelperApplication extends Application {
         Fabric.with(this, new Crashlytics());
     }
 
+    /** Creates a realm db.
+     */
     private void settingRealm(){
         RealmConfiguration realmConfiguration = new RealmConfiguration.Builder(this)
             .name(Constant.DB_NAME)

@@ -3,7 +3,7 @@ package com.jmarkstar.turisthelper.models;
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 
-/**
+/** Foursquare user's entity
  * Created by jmarkstar on 27/08/2016.
  */
 public class Session extends RealmObject {

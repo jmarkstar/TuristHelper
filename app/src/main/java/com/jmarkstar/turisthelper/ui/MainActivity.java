@@ -21,6 +21,7 @@ import com.jmarkstar.turisthelper.models.Session;
 import com.jmarkstar.turisthelper.utils.LogUtils;
 import butterknife.BindView;
 import io.realm.Realm;
+
 /**
  * @author jmarkstar
  * */
