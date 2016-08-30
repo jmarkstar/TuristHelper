@@ -5,6 +5,32 @@ butterknife, glide, crashlytics and support design lib.
 
 The app is consuming the apis of foursquare API and google maps directions API.
 
+Configurations
+
+/app/src/main/res/values/google_maps_api.xml
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	 <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">your_google_maps_api_key</string>
+</resources>
+```
+/app/src/main/assets/foursquare.properties
+
+```xml
+CLIENT_ID=your_foursquare_client_id
+CLIENT_SECRET=your_foursquare_client_secret
+```
+/app/fabric.properties
+```xml
+apiSecret=your_fabric_api_secret
+```
+/keystore.properties
+```xml
+STORE_PASSWORD=your_store_password
+KEY_PASSWORD=your_key_password
+KEY_ALIAS=your_key_alias
+STORE_FILE=/your/file/keystore.jks
+```
 ScreenShots
 
 ![](/screenshots/Screenshot_1.png)
