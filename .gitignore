@@ -1,4 +1,5 @@
 # Created by .ignore support plugin (hsz.mobi)
+.gitignore
 .idea
 .gradle
 *.iml
@@ -7,7 +8,7 @@ build
 screenshots
 release
 gradle
-#app/fabric.properties
+app/fabric.properties
 app/src/main/assets/foursquare.properties
 app/src/main/res/values/google_maps_api.xml
 
