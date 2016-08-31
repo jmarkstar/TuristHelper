@@ -25,6 +25,7 @@ public class Constant {
     public static final String V_PARAMETER = "v";
     public static final String TOKEN_PARAMETER = "oauth_token";
     public static final String V_DATE_FORMAT = "yyyyMMdd";
+    public static final String FOURSQUARE_PROPERTIES = "foursquare.properties";
 
     //goolge maps api
     public static final String GOOGLEDIRECTION_API_BASE = "http://maps.googleapis.com/maps/api/";

@@ -3,6 +3,8 @@ package com.jmarkstar.turisthelper.helpers;
 import android.content.Context;
 import android.content.res.AssetManager;
 import com.jmarkstar.turisthelper.models.Session;
+import com.jmarkstar.turisthelper.utils.Constant;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
@@ -27,7 +29,7 @@ public class FoursquareHelper {
         Properties properties = new Properties();
         try{
             AssetManager assetManager = context.getAssets();
-            InputStream inputStream = assetManager.open("foursquare.properties");
+            InputStream inputStream = assetManager.open(Constant.FOURSQUARE_PROPERTIES);
             properties.load(inputStream);
         }catch (IOException e){
             e.printStackTrace();

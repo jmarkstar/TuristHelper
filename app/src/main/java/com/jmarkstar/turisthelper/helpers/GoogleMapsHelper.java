@@ -10,7 +10,9 @@ import java.util.List;
  */
 public class GoogleMapsHelper {
 
-    /* Method to decode polyline points */
+    /** Method to decode polyline points
+     *  from https://github.com/googlemaps/google-maps-services-java/blob/master/src/main/java/com/google/maps/internal/PolylineEncoding.java
+     * */
     public static List<LatLng> decodePoly(String encoded) {
 
         List<LatLng> poly = new ArrayList<>();
